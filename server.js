@@ -24,10 +24,8 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended:false}));
 app.use('/', indexRouter);
 app.use('/signin', indexRouter);
 app.use('/verify', indexRouter);
-app.use(methodOverride('X-HTTP-Method-Override'))
+app.use(methodOverride('_method'));
 
-app.use((req, res) => {
-})
 
 app.use(express.urlencoded({extended: false}))
 app.use(flash())
