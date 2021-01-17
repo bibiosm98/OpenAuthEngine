@@ -2,8 +2,8 @@
 	<form class="signIn" action="/verify" method="POST"> 
         <h3>Welcome</br>Back !</h3>
         <h4>Please enter verify code from SMS.</h4>
-		<input type="password" name="number" placeholder="Insert phone Number" reqired value=""/>
-		<input type="text" name="verify_code" placeholder="Insert verify code" reqired value=""/>
+		<input type="text" name="number" placeholder="Insert phone Number" reqired value="<%= data.number %>"/>
+		<input type="password" name="verify_code" placeholder="Insert verify code" reqired value=""/>
 		<button class="form-btn dx" type="submit">Log In</button>
 	</form>
 </div> 

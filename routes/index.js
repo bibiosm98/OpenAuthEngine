@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/verify', async (req, res) => {
-    res.render('layouts/verify');
+    res.render('layouts/verify', {number, });
 });
 
 router.get('/success', async (req, res) => {
@@ -16,13 +16,16 @@ router.get('/success', async (req, res) => {
 
 
 router.post('/signin', async (req, res) => {
-    let api_send_sms = 'https://open-auth-engine.herokuapp.com/api/send_sms'
+    let data = {};
+    let api_send_sms = 'https://open-auth-engine.herokuapp.com/api/send_sms22'
     return new Promise((resolve, reject) => {
         let reqBody = {
             // "auth_token": req.body.token,
             "auth_token": process.env.TOKEN,
             "user_number": req.body.number
         }; 
+        
+        data.number = req.body.number;
         // console.log(api_send_sms);
         // console.log(reqBody);
         try{
@@ -35,12 +38,12 @@ router.post('/signin', async (req, res) => {
                 if (!error && response.statusCode == 200) {
                     if(body=="SMS SENT"){
                         // console.log("IF SENT");
-                        res.redirect('/verify');
+                        res.render('layouts/verify', {data: data});
                     }else{
-                        res.redirect('/');
+                        res.render('layouts/verify', {data: data});
                     }
                 }else{
-                    res.redirect('/');
+                    res.render('layouts/verify', {data: data});
                 }
             })
         }
