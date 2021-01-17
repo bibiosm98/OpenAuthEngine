@@ -55,13 +55,10 @@ router.post('/verify', async (req, res) => {
     let api_send_sms = 'https://open-auth-engine.herokuapp.com/api/verify_sms'
     return new Promise((resolve, reject) => {
         let reqBody = {
-            // "auth_token": req.body.token,
             "auth_token": process.env.TOKEN,
             "user_number": req.body.number,
             "user_verification_code": req.body.verify_code
-        }; 
-        // console.log(api_send_sms);
-        // console.log(reqBody);
+        };
         try{
             request.post({ 
                     uri: api_send_sms,
