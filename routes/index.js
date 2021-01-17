@@ -17,7 +17,7 @@ router.get('/success', async (req, res) => {
 
 router.post('/signin', async (req, res) => {
     let data = {};
-    let api_send_sms = 'https://open-auth-engine.herokuapp.com/api/send_sms22'
+    let api_send_sms = 'https://open-auth-engine.herokuapp.com/api/send_sms'
     return new Promise((resolve, reject) => {
         let reqBody = {
             // "auth_token": req.body.token,
